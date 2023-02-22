@@ -33,6 +33,7 @@ interface OptionDefinition
     public const NO_PROGRESS = 'no-progress';
     public const LOG_JSON = 'log-json';
     public const LOG_JUNIT = 'log-junit';
+    public const LOG_SARIF = 'log-sarif';
     public const IGNORE_EXIT_CODE = 'ignore-exit-code';
 
     public const DEFAULT_JOBS = 5;

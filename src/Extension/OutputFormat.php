@@ -23,6 +23,7 @@ use Overtrue\PHPLint\Output\ChainOutput;
 use Overtrue\PHPLint\Output\ConsoleOutput;
 use Overtrue\PHPLint\Output\JsonOutput;
 use Overtrue\PHPLint\Output\JunitOutput;
+use Overtrue\PHPLint\Output\SarifOutput;
 use Symfony\Component\Console\ConsoleEvents;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -70,6 +71,8 @@ class OutputFormat implements EventSubscriberInterface, AfterCheckingInterface
                     $this->handlers[] = new JsonOutput(fopen($filename, 'w'));
                 } elseif (OptionDefinition::LOG_JUNIT == $name) {
                     $this->handlers[] = new JunitOutput(fopen($filename, 'w'));
+                } elseif (OptionDefinition::LOG_SARIF == $name) {
+                    $this->handlers[] = new SarifOutput(fopen($filename, 'w'));
                 }
             }
         }
