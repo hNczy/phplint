@@ -15,6 +15,7 @@ if [ "$APP_DEBUG" == 'true' ]
 then
   echo "> You will act as user: $(id -u -n)"
   echo "> Your project source directory : $(ls -al $APP_WORKSPACE)"
+  echo "> Your Composer Global Configuration : $(composer config --global --list)"
 fi
 
 if [ ! -z ${INPUT_PATH} ]; then
