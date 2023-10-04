@@ -18,7 +18,7 @@ then
   echo "> You will act as user: $(id -u -n)"
   echo "> Your project source directory : $(ls -al $APP_WORKSPACE)"
   echo "> Composer binary found at $(which composer)"
-  echo "> Your Composer Global Configuration : $(composer config --global --list)"
+  echo "> Your Composer Global Configuration : $(composer global config --list)"
 fi
 
 if [ ! -z ${INPUT_PATH} ]; then
