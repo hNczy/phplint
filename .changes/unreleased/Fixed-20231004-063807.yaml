@@ -1,0 +1,4 @@
+kind: Fixed
+body: '[#192](https://github.com/overtrue/phplint/issues/192) : The "-x" option does
+  not exist.'
+time: 2023-10-04T06:38:07.566122134Z
