@@ -11,15 +11,18 @@ else
   APP_WORKSPACE="/workdir"
 fi
 
+COMPOSER_HOME="/home/$(id -u -n)/.composer"
+
 if [ "$APP_DEBUG" == 'true' ]
 then
   echo "> You will act as user: $(id -u -n)"
   echo "> Your project source directory : $(ls -al $APP_WORKSPACE)"
+  echo "> Composer binary found at $(which composer)"
   echo "> Your Composer Global Configuration : $(composer config --global --list)"
 fi
 
 if [ ! -z ${INPUT_PATH} ]; then
-  sh -c "cd $APP_WORKSPACE; $(composer config --global home)/vendor/bin/phplint ${INPUT_PATH} ${INPUT_OPTIONS}"
+  sh -c "cd $APP_WORKSPACE; $COMPOSER_HOME/vendor/bin/phplint ${INPUT_PATH} ${INPUT_OPTIONS}"
 else
-  sh -c "cd $APP_WORKSPACE; $(composer config --global home)/vendor/bin/phplint $*"
+  sh -c "cd $APP_WORKSPACE; $COMPOSER_HOME/vendor/bin/phplint $*"
 fi
